@@ -68,6 +68,11 @@ public class RestSampler extends HTTPSampler2 {
     public void setRequestHeaders(String headers) {
         setProperty(REQUEST_HEADERS, headers);
     }
+    
+    //no header
+    public void setDefaultRequestHeaders(){
+    	setProperty(null, null);
+    }
 
     public String getRequestBody() {
         return getPropertyAsString(REQUEST_BODY);
@@ -192,7 +197,7 @@ public class RestSampler extends HTTPSampler2 {
         try {
             httpMethod = createHttpMethod(method, urlStr);
             // Set any default request headers
-            setRequestHeaders(getConnectionHeaders(httpMethod));
+            setDefaultRequestHeaders();
             // Setup connection
             client = setupConnection(url, httpMethod, res);
             // Handle the various methods

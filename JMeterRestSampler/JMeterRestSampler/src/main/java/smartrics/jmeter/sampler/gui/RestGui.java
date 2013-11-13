@@ -78,6 +78,7 @@ public class RestGui extends AbstractSamplerGui {
      */
     public TestElement createTestElement() {
         RestSampler sampler = new RestSampler();
+        clear();
         modifyTestElement(sampler);
         return sampler;
     }
